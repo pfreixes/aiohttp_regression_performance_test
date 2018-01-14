@@ -80,7 +80,7 @@ def run_reference_benchmark(aiohttp_git_path, reference, wrk_path=None):
             output = str(run_benchmark(wrk_path=wrk_path))
             assert "Non-2xx" not in output
             ret.append(find_req_sec(output))
-        print("[{}] Benchmark req/sec {}".format(reference, round(sum(ret)/3), 2))
+        print("[{}] Benchmark req/sec {}".format(reference, round(max(ret), 2))
     finally:
         process.kill()
 
